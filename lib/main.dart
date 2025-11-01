@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import './screens/home_screen.dart';
 import './screens/about_screen.dart';
 import './screens/contact_screen.dart';
+import './screens/login_screen.dart';
+import './screens/controller_demo_screen.dart';
+import './screens/form_demo_screen.dart';
+import './screens/async_demo_screen.dart';
+import './screens/http_demo_screen.dart';
+import './screens/future_builder_demo_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,17 +18,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ✨ تعريف مجموعة ألوان احترافية
-    const primaryColor = Color(0xFF0D253F); 
-    const accentColor = Color(0xFF01B4E4); // سماوي مشرق
-    const scaffoldBackgroundColor = Color(0xFFF8F9FA); // خلفية رمادي فاتح جداً
+    const primaryColor = Color(0xFF0D253F);
+    const accentColor = Color(0xFF01B4E4);
+    const scaffoldBackgroundColor = Color(0xFFF8F9FA);
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Codanweb Professional App',
-      // ✨ تطبيق الثيم الجديد
       theme: ThemeData(
-        // استخدام ColorScheme لإدارة الألوان بشكل أفضل
         colorScheme: ColorScheme.fromSeed(
           seedColor: primaryColor,
           primary: primaryColor,
@@ -34,7 +37,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: primaryColor,
           foregroundColor: Colors.white,
           elevation: 5,
-          centerTitle: true, // مظهر احترافي للـ AppBar
+          centerTitle: true,
           titleTextStyle: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -42,11 +45,11 @@ class MyApp extends StatelessWidget {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: accentColor, // استخدام اللون المشرق للأزرار
+            backgroundColor: accentColor,
             foregroundColor: Colors.white,
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30), // حواف دائرية عصرية
+              borderRadius: BorderRadius.circular(30),
             ),
             elevation: 3,
             textStyle: const TextStyle(
@@ -56,11 +59,18 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: HomeScreen.routeName,
+      initialRoute: ControllerDemoScreen.routeName,
       routes: {
+        LoginScreen.routeName: (ctx) => const LoginScreen(),
         HomeScreen.routeName: (ctx) => const HomeScreen(),
         AboutScreen.routeName: (ctx) => const AboutScreen(),
         ContactScreen.routeName: (ctx) => const ContactScreen(),
+        ControllerDemoScreen.routeName: (ctx) => const ControllerDemoScreen(),
+        FormDemoScreen.routeName: (ctx) => const FormDemoScreen(),
+        AsyncDemoScreen.routeName: (ctx) => const AsyncDemoScreen(),
+        HttpDemoScreen.routeName: (ctx) => const HttpDemoScreen(),
+        FutureBuilderDemoScreen.routeName: (ctx) =>
+            const FutureBuilderDemoScreen(),
       },
     );
   }
